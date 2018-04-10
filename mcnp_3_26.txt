@@ -1,0 +1,654 @@
+1mcnpx    version 2.7.0 ld=Mon Apr 18 08:00:00 MST 2011                03/26/18 09:58:26
+ ***************************************************************************************   probid =   03/26/18 09:58:26
+ n=mcnp_3_26.inp o=mcnp_3_26.txt                                                                                         
+
+ 
+ warning.  universe map (print table 128) disabled.
+ *************************************************************
+ *                                                           *
+ *                   MCNPX                                   *
+ *                                                           *
+ * Copyright 2007. Los Alamos National Security, LLC.        *
+ * All rights reserved.                                      *
+ *                                                           *
+ * This material was produced under U.S. Government contract *
+ * DE-AC52-06NA25396 for Los Alamos National Laboratory,     *
+ * which is operated by Los Alamos National Security, LLC    *
+ * for the U.S. Department of Energy. The Government is      *
+ * granted for itself and others acting on its behalf a      *
+ * paid-up, nonexclusive, irrevocable worldwide license in   *
+ * this material to reproduce, prepare derivative works, and *
+ * works, and perform publicly and display publicly.         *
+ * Beginning five (5) years after June 1, 2006, subject to   *
+ * additional five-year worldwide renewals, the Government   *
+ * is granted for itself and others acting on its behalf     *
+ * a paid-up, nonexclusive, irrevocable worldwide license    *
+ * in this material to reproduce, prepare derivative works,  *
+ * distribute copies to the public, perform publicly and     *
+ * display publicly, and to permit others to do so.          *
+ *                                                           *
+ * NEITHER THE UNITED STATES NOR THE UNITED STATES           *
+ * DEPARTMENT OF ENERGY, NOR LOS ALAMOS NATIONAL SECURITY,   *
+ * LLC, NOR ANY OF THEIR EMPLOYEES, MAKES ANY WARRANTY,      *
+ * EXPRESS OR IMPLIED, OR ASSUMES ANY LEGAL LIABILITY OR     *
+ * RESPONSIBILITY FOR THE ACCURACY, COMPLETENESS, OR         *
+ * USEFULNESS OF ANY INFORMATION, APPARATUS, PRODUCT, OR     *
+ * PROCESS DISCLOSED, OR REPRESENTS THAT ITS USE WOULD NOT   *
+ * INFRINGE PRIVATELY OWNED RIGHTS.                          *
+ *                                                           *
+ *************************************************************
+    1-       c      J. Seth Dustin                                                           
+    2-       c                                                                               
+    3-       c                                                                               
+    4-       c                                                                               
+    5-       c      -----------                                                              
+    6-       c      cell cards                                                               
+    7-       c      -----------                                                              
+    8-       c                                                                               
+    9-       c      ---                                                                      
+   10-       1 0 1 -20 -7 imp:n=1 fill=6 $fuel                                               
+   11-       2 4 -1.85 2 -21 -8 #1 imp:n=1 $reflector                                        
+   12-       3 12 -2.52 3 -22 -9 #1 #2 imp:n=1 $Shield?                                      
+   13-       4 6 -1.0e-4   4 -22 -3  imp:n=1 $He void under reactor                          
+   14-       5 10 -7.92 5 -23 -10 #1 #2 #3 #4  imp:n=1 $Stainless                            
+   15-       6 11 -3.35 6 -24 -11 #1 #2 #3 #4 #5  imp:n=1 $Extra Shielding, concrete         
+   16-       7 0 #1 #2 #3 #4 #5 #6  imp:n=0                                                  
+   17-       c                                                                               
+   18-       100    1 -11.3      -100                                  u=1    imp:n=1       $
+   19-       110    6 -1.0e-4     100 -130                             u=1    imp:n=1       $
+   20-       120    5 -3.21       130 -140                             u=1    imp:n=1       $
+   21-       130    10 -7.92      140                                  u=1    imp:n=1       $
+   22-       c                                                                               
+   23-       c  200    12 -2.52     -100                                  u=2    imp:n=1     
+   24-       200    6 -1.0e-4    -100                                  u=2    imp:n=1       $
+   25-       210    6 -1.0e-4     100 -130                             u=2    imp:n=1       $
+   26-       c  220    5 -3.21       130 -140                             u=2    imp:n=1     
+   27-       220    6 -1.0e-4     130 -140                             u=2    imp:n=1       $
+   28-       230    10 -7.92      140                                  u=2    imp:n=1       $
+   29-       c                                                                               
+   30-       240    0             -160 150 170 -180           lat=1                          
+   31-              fill=-1:1 -1:1 0:0                                                       
+   32-              1 1 1                                                                    
+   33-              1 1 1                                                                    
+   34-              1 1 1                                                                    
+   35-                                                                 u=3    imp:n=1       $
+   36-       c                                                                               
+   37-       300    13 -0.434      -300                                u=4    imp:n=1       $
+   38-       310    10 -7.92        300 -330                           u=4    imp:n=1       $
+   39-       330    10 -7.92        330                                u=4    imp:n=1       $
+   40-       c                                                                               
+   41-       340    0             -160 150 170 -180           lat=1                          
+   42-              fill=-1:1 -1:1 0:0                                                       
+   43-              1 1 1                                                                    
+   44-              1 2 1                                                                    
+   45-              1 1 1                                                                    
+   46-                                                                 u=5    imp:n=1       $
+   47-       c                                                                               
+   48-       440 6 -1.0e-4  -360 350 370 -380  imp:n=1 lat=1 fill=-13:13 -13:13 0:0          
+   49-              6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6                    
+   50-              6 6 6 6 6 6 6 6 6 6 6 5 3 5 3 5 6 6 6 6 6 6 6 6 6 6 6                    
+   51-              6 6 6 6 6 6 6 6 3 3 3 3 3 3 3 3 3 3 3 6 6 6 6 6 6 6 6                    
+   52-              6 6 6 6 6 6 3 5 3 4 3 4 3 4 3 4 3 4 3 5 3 6 6 6 6 6 6                    
+   53-              6 6 6 6 6 3 3 3 3 3 3 5 3 5 3 5 3 3 3 3 3 3 6 6 6 6 6                    
+   54-              6 6 6 6 3 5 3 4 3 4 5 4 3 4 3 4 5 4 3 4 3 5 3 6 6 6 6                    
+   55-              6 6 6 3 3 3 3 3 3 5 3 5 3 5 3 5 3 5 3 3 3 3 3 3 6 6 6                    
+   56-              6 6 6 5 3 4 3 4 5 4 5 4 5 4 5 4 5 4 5 4 3 4 3 5 6 6 6                    
+   57-              6 6 3 3 3 3 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 3 3 3 3 6 6                    
+   58-              6 6 3 4 3 4 5 4 5 4 5 4 3 4 3 4 5 4 5 4 5 4 3 4 3 6 6                    
+   59-              6 6 3 3 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 3 3 6 6                    
+   60-              6 5 3 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 3 5 6                    
+   61-              6 3 3 3 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 3 3 3 6                    
+   62-              6 5 3 4 5 4 5 4 5 4 5 4 3 4 3 4 5 4 5 4 5 4 5 4 3 5 6                    
+   63-              6 3 3 3 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 3 3 3 6                    
+   64-              6 5 3 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 3 5 6                    
+   65-              6 6 3 3 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 3 3 6 6                    
+   66-              6 6 3 4 3 4 5 4 5 4 5 4 3 4 3 4 5 4 5 4 5 4 3 4 3 6 6                    
+   67-              6 6 3 3 3 3 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 3 3 3 3 6 6                    
+   68-              6 6 6 5 3 4 3 4 5 4 5 4 5 4 5 4 5 4 5 4 3 4 3 5 6 6 6                    
+   69-              6 6 6 3 3 3 3 3 3 5 3 5 3 5 3 5 3 5 3 3 3 3 3 3 6 6 6                    
+   70-              6 6 6 6 3 5 3 4 3 4 5 4 3 4 3 4 5 4 3 4 3 5 3 6 6 6 6                    
+   71-              6 6 6 6 6 3 3 3 3 3 3 5 3 5 3 5 3 3 3 3 3 3 6 6 6 6 6                    
+   72-              6 6 6 6 6 6 3 5 3 4 3 4 3 4 3 4 3 4 3 5 3 6 6 6 6 6 6                    
+   73-              6 6 6 6 6 6 6 6 3 3 3 3 3 3 3 3 3 3 3 6 6 6 6 6 6 6 6                    
+   74-              6 6 6 6 6 6 6 6 6 6 6 5 3 5 3 5 6 6 6 6 6 6 6 6 6 6 6                    
+   75-              6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6                    
+   76-                                         u=6    imp:n=1  vol=830000     $Lulz          
+   77-       c                                                                               
+   78-       c      -----------                                                              
+   79-       c      end cell cards                                                           
+   80-       c      -----------                                                              
+   81-                                                                                       
+   82-       c      -----------                                                              
+   83-       c      surface cards                                                            
+   84-       c      -----------                                                              
+   85-       c                                                                               
+   86-       c                                                                               
+   87-       c                                                                               
+   88-       1 PZ 0                                                                          
+   89-       2 PZ -19.54                                                                     
+   90-       3 PZ -23.08                                                                     
+   91-       4 PZ -110.98                                                                    
+   92-       5 PZ -113.52                                                                    
+   93-       6 PZ -123.52                                                                    
+   94-       7 PZ 110                                                                        
+   95-       8 PZ 129.54                                                                     
+   96-       9 PZ 126.06                                                                     
+   97-       10 PZ 134.62                                                                    
+   98-       11 PZ 144.62                                                                    
+   99-       c                                                                               
+  100-       20 CZ 49                                                                        
+  101-       21 CZ 69.54                                                                     
+  102-       22 CZ 72.08                                                                     
+  103-       23 CZ 74.62                                                                     
+  104-       24 CZ 89.62                                                                     
+  105-       c                                                                               
+  106-       100     CZ   0.55    $cylinder radius                                           
+  107-       130     CZ   0.56    $Helium radius                                             
+  108-       140     CZ   0.5950  $Zircaloy                                                  
+  109-       150     PX  -0.63    $Unit cell low x plane                                     
+  110-       160     PX   0.63    $Unit cell high x plane                                    
+  111-       170     PY  -0.63    $Unit cell low y plane                                     
+  112-       180     PY   0.63    $Unit cell high y plane                                    
+  113-       c                                                                               
+  114-       200     CZ   0.409   $Control rod radius                                        
+  115-       230     CZ   0.417   $Gap radius?                                               
+  116-       240     CZ   0.474   $Control coating radius                                    
+  117-       c                    $ use 150-180 to define unit cells                         
+  118-       c                                                                               
+  119-       300     CZ   1.5     $Heat pipe inner radius                                    
+  120-       330     CZ   1.88    $Heat pipe outer radius                                    
+  121-       350     PX  -1.89    $Unit cell low x plane                                     
+  122-       360     PX   1.89    $Unit cell high x plane                                    
+  123-       370     PY  -1.89    $Unit cell low y plane                                     
+  124-       380     PY   1.89    $Unit cell high y plane                                    
+  125-       c                                                                               
+  126-       c                                                                               
+  127-                                                                                       
+  128-       c                                                                               
+  129-       c                                                                               
+  130-       MODE   n $ p                                                                    
+  131-       phys:N                                                                          
+  132-       c phys:P                                                                        
+  133-       KCODE  10000 1.0 100 500                                                        
+  134-       ksrc -3.8 0 40 3.8 0 40 11.4 0 40 18.9 0 40 -18.9 -18.9 40 -18.9 18.9 40        
+  135-            18.9 -18.9 40 18.9 18.9 40                                                 
+  136-       c                                                                               
+  137-       c                                                                               
+  138-       FMESH04:n GEOM=xyz   ORIGIN= -49 -49 0                                          
+ fatal error.  fmesh is not a legal data symbol.
+  139-                   IMESH=49   IINTS=1000                                               
+  140-                   JMESH=49   JINTS=1000                                               
+  141-                   KMESH=110   KINTS=1                                                 
+  142-            OUT=ij                                                                     
+  143-       c                                                                               
+  144-       +fm04  1  1 -6 $ Fission Rates                                                  
+ fatal error.  there is no f card corresponding to this card.
+  145-       c                                                                               
+  146-       FMESH14:n GEOM=xyz   ORIGIN= -90 -90 0 $flux                                    
+ fatal error.  fmesh is not a legal data symbol.
+  147-                   IMESH=90   IINTS=1000                                               
+  148-                   JMESH=90   JINTS=1000                                               
+  149-                   KMESH=110   KINTS=1                                                 
+  150-            OUT=ij                                                                     
+  151-       c                                                                               
+  152-       c                                                                               
+  153-       c                                                                               
+  154-       c      Uranium Nitride          11.3 g/cc                                       
+  155-       M1     92235.67c 0.199                                                          
+  156-              92238.67c 0.801                                                          
+  157-              7015.42c 1.                                                              
+  158-       c                                                                               
+  159-       c      Carbon (Graphite)         1.7 g/cc                                       
+  160-       M2 6000.24c 1                                                                   
+ warning.  material   2 is not used in the problem.
+  161-       c                                                                               
+  162-       c      Air                  0.001205 g/cc                                       
+  163-       m3 6000.24c 0.000151 $ C                                                        
+ warning.  material   3 is not used in the problem.
+  164-            7014.24c 0.784437 $ N                                                      
+  165-            8016.21c 0.210750 $ O                                                      
+  166-            18000.35c 0.004671 $ Ar                                                    
+  167-       c                                                                               
+  168-       c      Beryllium                1.85 g/cc                                       
+  169-       m4 4009.24c 1                                                                   
+  170-       c                                                                               
+  171-       c      Silicon Carbide          3.21 g/cc                                       
+  172-       M5 6000.24c 1                                                                   
+  173-            14000.21c 1                                                                
+  174-       c                                                                               
+  175-       c      Helium              0.0001785 g/cc                                       
+  176-       M6 2004.42c 1                                                                   
+  177-       c                                                                               
+  178-       c      Water                    1.00 g/cc                                       
+  179-       M7 1001.24c 0.666657                                                            
+ warning.  material   7 is not used in the problem.
+  180-            8016.21c 0.333343                                                          
+  181-       c                                                                               
+  182-       c      Inconel 600              8.43 g/cc                                       
+  183-       M8 24000.42c 0.197637                                                           
+ warning.  material   8 is not used in the problem.
+  184-            26000.21c 0.102231                                                         
+  185-            28000.42c 0.700133                                                         
+  186-       c                                                                               
+  187-       c      Lead                    11.35 g/cc                                       
+  188-       M9 82000.42c 1                                                                  
+ warning.  material   9 is not used in the problem.
+  189-       c                                                                               
+  190-       c      SS316L                   7.92 g/cc                                       
+  191-       M10 14000.21c 0.019755 $ Si                                                     
+  192-            24000.42c 0.181400 $ Cr                                                    
+  193-            25055.42c 0.020198 $ Mn                                                    
+  194-            26000.21c 0.650753 $ Fe                                                    
+  195-            28000.42c 0.113436 $ Ni                                                    
+  196-            42000.42c 0.014458 $ Mo                                                    
+  197-       c                                                                               
+  198-       c      Concrete (Barite)        3.35 g/cc                                       
+  199-       M11 1001.24c 0.109602                                                           
+  200-            8016.21c 0.600193                                                          
+  201-            12000.42c 0.001515                                                         
+  202-            13027.21c 0.004777                                                         
+  203-            14000.21c 0.011473                                                         
+  204-            16000.60c 0.103654                                                         
+  205-            20000.24c 0.038593                                                         
+  206-            26000.21c 0.026213                                                         
+  207-            56130.70c 0.103984                                                         
+  208-       c                                                                               
+  209-       c      Boron Carbide            2.52 g/cc                                       
+  210-       M12 5010.42c 0.799981                                                           
+  211-            6000.24c 0.200018                                                          
+  212-       c                                                                               
+  213-       c      Sodium                   0.971 g/cc                                      
+  214-       M13 11022.70c 1                                                                 
+  215-       c                                                                               
+  216-       c                                                                               
+  217-       F6:n,p 440                                                                      
+ warning.  this tally is not consistent with the problem mode.
+  218-       c                                                                               
+1     initial source from ksrc card.                                                                    print table 90
+
+ original number of points                             8
+    points not in any cell                       0
+    points in cells of zero importance           0
+    points in void cells                         0
+    points in ambiguous cells                    0
+ total points rejected                                 0
+ points remaining                                      8
+ points after expansion or contraction             10000
+ nominal source size                               10000
+
+ initial guess for k(eff.)                      1.000000
+
+ cycles to skip before tallying                      100
+
+ number of keff cycles that can be stored           6500
+
+  total fission nubar data are being used.
+1tally   4                                                                                              print table 30
+           tally type 4    track length estimate of particle flux.                        
+           particle(s):
+1tally   6                                                                                              print table 30
+           tally type 6    track length estimate of heating.                              
+           particle(s): neutron     photon     
+ cells     440                                                                                                         
+ 
+ warning.  kcode usually needs s(a,b) physics (mt card)
+1material composition                                                                                   print table 40
+
+ the sum of the fractions of material    1 was 2.000000E+00
+
+ the sum of the fractions of material    5 was 2.000000E+00
+
+ material
+  number     component nuclide, atom fraction
+
+     1           92235, 9.95000000000E-02      92238, 4.00500000000E-01       7015, 5.00000000000E-01
+     4            4009, 1.00000000000E+00
+     5            6000, 5.00000000000E-01      14000, 5.00000000000E-01
+     6            2004, 1.00000000000E+00
+    10           14000, 1.97550000000E-02      24000, 1.81400000000E-01      25055, 2.01980000000E-02      26000, 6.50753000000E-01
+                 28000, 1.13436000000E-01      42000, 1.44580000000E-02
+    11            1001, 1.09601561594E-01       8016, 6.00190599238E-01      12000, 1.51499394002E-03      13027, 4.77698089208E-03
+                 14000, 1.14729541082E-02      16000, 1.03653585386E-01      20000, 3.85928456286E-02      26000, 2.62128951484E-02
+                 56130, 1.03983584066E-01
+    12            5010, 7.99981799982E-01       6000, 2.00018200018E-01
+    13           11022, 1.00000000000E+00
+
+
+
+
+
+ material
+  number     component nuclide, mass fraction
+
+     1           92235, 1.85277373222E-01      92238, 7.55305084969E-01       7015, 5.94175418095E-02
+     4            4009, 1.00000000000E+00
+     5            6000, 2.99552912135E-01      14000, 7.00447087865E-01
+     6            2004, 1.00000000000E+00
+    10           14000, 9.99981171882E-03      24000, 1.69996846167E-01      25055, 1.99992666332E-02      26000, 6.55008769039E-01
+                 28000, 1.19997551292E-01      42000, 2.49977551507E-02
+    11            1001, 3.67698015002E-03       8016, 3.19565964209E-01      12000, 1.22573573330E-03      13027, 4.29051691802E-03
+                 14000, 1.07262261062E-02      16000, 1.10636055986E-01      20000, 5.14875812727E-02      26000, 4.87307199622E-02
+                 56130, 4.49660219662E-01
+    12            5010, 7.69276884441E-01       6000, 2.30723115559E-01
+    13           11022, 1.00000000000E+00
+ 
+ warning.    2 materials had unnormalized fractions. print table 40.
+
+
+1LAHET physics options:                                                                                 print table 41
+
+ lca    ielas   ipreq  iexisa  ichoic   jcoul  nexite   npidk   noact    icem    ilaq
+ lca        2       1       1      23       1       1       0       1       0       0
+
+ lcb    flenb(i),i=1,6                                                          ctofe       flim0
+ lcb    3.4900E+03  3.4900E+03  2.4900E+03  2.4900E+03  8.0000E+02  8.0000E+02 -1.0000E+00 -1.0000E+00
+
+ lea     ipht     icc  nobalc  nobale   ifbrk  ilvden   ievap   nofis
+ lea        1       4       1       0       1       0       0       1
+
+ leb    yzere       bzere       yzero       bzero
+ leb    1.5000E+00  8.0000E+00  1.5000E+00  1.0000E+01
+
+1cell volumes and masses                                                                                print table 50
+
+        cell     atom          gram         input       calculated                            reason volume
+                density       density       volume        volume         mass       pieces    not calculated
+
+     1     1  0.00000E+00   0.00000E+00   0.00000E+00   8.29726E+05   0.00000E+00      1                      
+     2     2  1.23619E-01   1.85000E+00   0.00000E+00   1.43512E+06   2.65497E+06      1                      
+     3     3  1.45742E-01   2.52000E+00   0.00000E+00   2.22320E+05   5.60246E+05      1                      
+     4     4  1.50453E-05   1.00000E-04   0.00000E+00   1.43472E+06   1.43472E+02      1                      
+     5     5  8.59610E-02   7.92000E+00   0.00000E+00   4.18784E+05   3.31677E+06      1                      
+     6     6  6.71550E-02   3.35000E+00   0.00000E+00   2.42516E+06   8.12429E+06      1                      
+     7     7  0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+     8   100  5.39104E-02   1.13000E+01   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+     9   110  1.50453E-05   1.00000E-04   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    10   120  9.64211E-02   3.21000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    11   130  8.59610E-02   7.92000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    12   200  1.50453E-05   1.00000E-04   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    13   210  1.50453E-05   1.00000E-04   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    14   220  1.50453E-05   1.00000E-04   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    15   230  8.59610E-02   7.92000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    16   240  0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    17   300  1.18829E-02   4.34000E-01   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    18   310  8.59610E-02   7.92000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    19   330  8.59610E-02   7.92000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    20   340  0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00   0.00000E+00      0      infinite        
+    21   440  1.50453E-05   1.00000E-04   8.30000E+05   0.00000E+00   8.30000E+01      0      infinite        
+1surface areas                                                                                          print table 50
+
+         surface    input      calculated    reason area
+                    area          area       not calculated
+
+     1        1  0.00000E+00   7.54296E+03                   
+     2        2  0.00000E+00   1.51922E+04                   
+     3        3  0.00000E+00   1.63222E+04                   
+     4        4  0.00000E+00   1.63222E+04                   
+     5        5  0.00000E+00   1.74928E+04                   
+     6        6  0.00000E+00   2.52325E+04                   
+     7        7  0.00000E+00   7.54296E+03                   
+     8        8  0.00000E+00   1.51922E+04                   
+     9        9  0.00000E+00   1.13008E+03                   
+    10       10  0.00000E+00   1.74928E+04                   
+    11       11  0.00000E+00   2.52325E+04                   
+    12       20  0.00000E+00   3.38664E+04                   
+    13       21  0.00000E+00   6.51379E+04                   
+    14       22  0.00000E+00   1.07354E+05                   
+    15       23  0.00000E+00   1.16341E+05                   
+    16       24  0.00000E+00   1.50989E+05                   
+    17      100  0.00000E+00   0.00000E+00   infinite        
+    18      130  0.00000E+00   0.00000E+00   infinite        
+    19      140  0.00000E+00   0.00000E+00   infinite        
+    20      150  0.00000E+00   0.00000E+00   infinite        
+    21      160  0.00000E+00   0.00000E+00   infinite        
+    22      170  0.00000E+00   0.00000E+00   infinite        
+    23      180  0.00000E+00   0.00000E+00   infinite        
+    24      200  0.00000E+00   0.00000E+00   not a boundary  
+    25      230  0.00000E+00   0.00000E+00   not a boundary  
+    26      240  0.00000E+00   0.00000E+00   not a boundary  
+    27      300  0.00000E+00   0.00000E+00   infinite        
+    28      330  0.00000E+00   0.00000E+00   infinite        
+    29      350  0.00000E+00   0.00000E+00   infinite        
+    30      360  0.00000E+00   0.00000E+00   infinite        
+    31      370  0.00000E+00   0.00000E+00   infinite        
+    32      380  0.00000E+00   0.00000E+00   infinite        
+1cells                                                                                                  print table 60
+
+                      atom        gram                                     neutron                                       
+        cell  mat    density     density     volume       mass     pieces  importance                                    
+
+     1     1    0  0.00000E+00 0.00000E+00 8.29726E+05 0.00000E+00      1  1.0000E+00                                    
+     2     2    4  1.23619E-01 1.85000E+00 1.43512E+06 2.65497E+06      1  1.0000E+00                                    
+     3     3   12  1.45742E-01 2.52000E+00 2.22320E+05 5.60246E+05      1  1.0000E+00                                    
+     4     4    6  1.50453E-05 1.00000E-04 1.43472E+06 1.43472E+02      1  1.0000E+00                                    
+     5     5   10  8.59610E-02 7.92000E+00 4.18784E+05 3.31677E+06      1  1.0000E+00                                    
+     6     6   11  6.71550E-02 3.35000E+00 2.42516E+06 8.12429E+06      1  1.0000E+00                                    
+     7     7    0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00      0  0.0000E+00                                    
+     8   100    1  5.39104E-02 1.13000E+01 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+     9   110    6  1.50453E-05 1.00000E-04 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    10   120    5  9.64211E-02 3.21000E+00 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    11   130   10  8.59610E-02 7.92000E+00 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    12   200    6  1.50453E-05 1.00000E-04 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    13   210    6  1.50453E-05 1.00000E-04 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    14   220    6  1.50453E-05 1.00000E-04 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    15   230   10  8.59610E-02 7.92000E+00 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    16   240    0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    17   300   13  1.18829E-02 4.34000E-01 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    18   310   10  8.59610E-02 7.92000E+00 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    19   330   10  8.59610E-02 7.92000E+00 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    20   340    0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00      0  1.0000E+00                                    
+    21   440    6  1.50453E-05 1.00000E-04 8.30000E+05 8.30000E+01      0  1.0000E+00                                    
+
+ total                                     7.59583E+06 1.46565E+07
+1surfaces                                                                                               print table 70
+
+         surface     trans  type   surface coefficients
+
+     1      1                pz    0.0000000E+00
+     2      2                pz   -1.9540000E+01
+     3      3                pz   -2.3080000E+01
+     4      4                pz   -1.1098000E+02
+     5      5                pz   -1.1352000E+02
+     6      6                pz   -1.2352000E+02
+     7      7                pz    1.1000000E+02
+     8      8                pz    1.2954000E+02
+     9      9                pz    1.2606000E+02
+    10     10                pz    1.3462000E+02
+    11     11                pz    1.4462000E+02
+    12     20                cz    4.9000000E+01
+    13     21                cz    6.9540000E+01
+    14     22                cz    7.2080000E+01
+    15     23                cz    7.4620000E+01
+    16     24                cz    8.9620000E+01
+    17    100                cz    5.5000000E-01
+    18    130                cz    5.6000000E-01
+    19    140                cz    5.9500000E-01
+    20    150                px   -6.3000000E-01
+    21    160                px    6.3000000E-01
+    22    170                py   -6.3000000E-01
+    23    180                py    6.3000000E-01
+    24    200                cz    4.0900000E-01
+    25    230                cz    4.1700000E-01
+    26    240                cz    4.7400000E-01
+    27    300                cz    1.5000000E+00
+    28    330                cz    1.8800000E+00
+    29    350                px   -1.8900000E+00
+    30    360                px    1.8900000E+00
+    31    370                py   -1.8900000E+00
+    32    380                py    1.8900000E+00
+ 
+ warning.  surface    200 is not used for anything.
+ 
+ warning.  surface    230 is not used for anything.
+ 
+ warning.  surface    240 is not used for anything.
+
+
+ random number control    0.830206021468160E+14
+1  cell temperatures in mev for the free-gas thermal neutron treatment.                                 print table 72
+
+   all non-zero importance cells with materials have a temperature for thermal neutrons of 2.5300E-08 mev.
+ 
+ warning.  Resetting bank size from   2048 to    128 particles
+
+        13 warning messages so far.
+
+         3 fatal errors so far.
+1physical constants                                                                                     print table 98
+
+
+   name                    value     description
+
+   huge      1.0000000000000E+37     infinity
+    pie      3.1415926535898E+00     pi
+  euler      5.7721566490153E-01     euler constant
+ avogad      6.0220434469282E+23     avogadro number (molecules/mole)
+  aneut      1.0086649670000E+00     neutron mass (amu)
+  avgdn      5.9703109000000E-01     avogadro number/neutron mass (1.e-24*molecules/mole/amu)
+  slite      2.9979250000000E+02     speed of light (cm/shake)
+ planck      4.1357320000000E-13     planck constant (mev shake)
+  fscon      1.3703930000000E+02     inverse fine structure constant h*c/(2*pi*e**2)
+ gpt(1)      9.3958000000000E+02     neutron mass (mev)
+ gpt(3)      5.1100800000000E-01     electron mass (mev)
+
+
+ fission q-values:     nuclide    q(mev)   nuclide    q(mev)
+                         90232    171.91     91233    175.57
+                         92233    180.84     92234    179.45
+                         92235    180.88     92236    179.50
+                         92237    180.40     92238    181.31
+                         92239    180.40     92240    180.40
+                         93237    183.67     94238    186.65
+                         94239    189.44     94240    186.36
+                         94241    188.99     94242    185.98
+                         94243    187.48     95241    190.83
+                         95242    190.54     95243    190.25
+                         96242    190.49     96244    190.49
+                         other    180.00
+
+
+ the following compilation options were used:
+
+     CHEAP
+     DEC
+     PLOT
+     MCPLOT
+     GKSSIM
+     XLIB
+     XS64
+     CEM
+     INCL
+     HISTP
+     MESHTAL
+     RADIOG
+     SPABI
+     default datapath: C:\MY_MCNP\MCNP_DATA                                                            
+                       c:\mcnpx\xs                                                                     
+1cross-section tables                                                                                   print table 100
+
+     table    length
+
+                        tables from file xdata/la150n                                                    
+
+ particle-production data for ipt= 31 being expunged from   1001.24c
+   1001.24c    5880  n + 1-h-1 endf/b-vi.6 apt la150 njoy 99                                      mat 125      03/20/00
+ particle-production data for ipt=  9 being expunged from   4009.24c
+ particle-production data for ipt= 31 being expunged from   4009.24c
+ particle-production data for ipt= 32 being expunged from   4009.24c
+ particle-production data for ipt= 34 being expunged from   4009.24c
+   4009.24c   37994  n + 4-be-9 la100 njoy 99.5                                                   mat 409      06/21/00
+ particle-production data for ipt=  9 being expunged from   6000.24c
+ particle-production data for ipt= 31 being expunged from   6000.24c
+ particle-production data for ipt= 34 being expunged from   6000.24c
+   6000.24c   45955  n + 6-c-nat endf/b-vi.6 apt la150 njoy 99                                    mat 600      04/20/00
+ particle-production data for ipt=  9 being expunged from  20000.24c
+ particle-production data for ipt= 31 being expunged from  20000.24c
+ particle-production data for ipt= 32 being expunged from  20000.24c
+ particle-production data for ipt= 34 being expunged from  20000.24c
+  20000.24c   71360  n + 20-ca-nat endf/b-vi.6 apt la150 njoy 99                                  mat2000      03/16/00
+
+                        tables from file xdata/endl92                                                    
+
+   2004.42c    1332   ENDL library name:  nd920609  MCNP translation:  930914 12:03:33                       911219    
+                     temperature = 2.5860E-08 adjusted to 2.5300E-08
+   5010.42c    3998   ENDL library name:  nd920609  MCNP translation:  930914 12:03:33                       920611    
+                     temperature = 2.5860E-08 adjusted to 2.5300E-08
+   7015.42c   16101   ENDL library name:  nd920609  MCNP translation:  930914 12:03:33                       911219    
+                     temperature = 2.5860E-08 adjusted to 2.5300E-08
+  12000.42c    5474   ENDL library name:  nd920609  MCNP translation:  930914 12:03:33                       911219    
+                     temperature = 2.5860E-08 adjusted to 2.5300E-08
+  24000.42c    9322   ENDL library name:  nd920609  MCNP translation:  930914 12:03:33                       911219    
+                     temperature = 2.5860E-08 adjusted to 2.5300E-08
+  25055.42c    6617   ENDL library name:  nd920609  MCNP translation:  930914 12:03:33                       920611    
+                     temperature = 2.5860E-08 adjusted to 2.5300E-08
+  28000.42c   28554   ENDL library name:  nd920609  MCNP translation:  930914 12:03:33                       911219    
+                     temperature = 2.5860E-08 adjusted to 2.5300E-08
+  42000.42c    5586   ENDL library name:  nd920609  MCNP translation:  930914 12:03:33                       911219    
+                     temperature = 2.5860E-08 adjusted to 2.5300E-08
+
+                        tables from file xdata/100xs                                                     
+
+   8016.21c   31991  8-o-16 from pgy 100 mev library (o100n6)                                     mat 816      09/01/95
+                     temperature = 2.5852E-08 adjusted to 2.5300E-08
+  13027.21c   19763  13-al-27 from pgy 100 mev library (al100n6)                                  mat1327      08/14/95
+                     temperature = 2.5852E-08 adjusted to 2.5300E-08
+  14000.21c   58227  14-si-nat from pgy 100 mev library (si100n6)                                 mat1428      09/28/95
+                     temperature = 2.5852E-08 adjusted to 2.5300E-08
+  26000.21c  102676  26-fe-nat from pgy 100 mev library (fe100n6)                                 mat 260      09/01/95
+                     temperature = 2.5852E-08 adjusted to 2.5300E-08
+
+                        tables from file xdata/endf70a                                                   
+
+  11022.70c   11001  11-Na- 22 at 293.6K from endf/b-vii.0 njoy99.248                             mat1122      09/17/07
+
+                        tables from file xdata/endf60                                                    
+
+  16000.60c   66029  16-s-nat from endf/b-vi                                                      mat1600      11/25/93
+
+                        tables from file xdata/endf70f                                                   
+
+  56130.70c  124252  56-Ba-130 at 293.6K from endf/b-vii.0 njoy99.248                             mat5625      08/25/07
+                     probability tables used from 2.8000E-03 to 1.0000E-01 mev.
+
+                        tables from file xdata/t16_2003                                                  
+
+  92235.67c  893596  92-u-235 at 77.K from t16 u235la9d njoy99.50       total nu                  mat9228      07/02/03
+                     probability tables used from 2.2500E-03 to 2.5000E-02 mev.
+                     temperature = 6.6354E-09 adjusted to 2.5300E-08
+  92238.67c  888005  92-u-238 at 77.K from t16 u238la8h njoy99.50       total nu                  mat9237      07/02/03
+                     probability tables used from 1.0000E-02 to 1.4903E-01 mev.
+                     temperature = 6.6354E-09 adjusted to 2.5300E-08
+
+  total     2433713
+ 
+ warning.  neutron energy cutoff is below some cross-section tables.
+ 
+ warning.    14 cross sections modified by free gas thermal treatment.
+
+1particles and energy limits                                                                            print table 101
+
+                         particle      maximum       smallest      largest       always        always
+                         cutoff        particle      table         table         use table     use model
+   particle type         energy        energy        maximum       maximum       below         above
+
+    1  n  neutron       0.0000E+00    1.0000E+37    2.0000E+01    1.5000E+02    2.0000E+01    1.5000E+02
+ 
+1decimal words of dynamically allocated storage
+
+     general                  0
+     tallies               6506
+     bank                 26241
+     cross sections     2433714
+
+     total                    0     =           0 bytes
+
+        15 warning messages so far.
+
+         3 fatal errors so far.
+
+
+ run terminated because of fatal errors.
+
+ computer time =    0.15 minutes
+
+ mcnpx    version 2.7.0 Mon Apr 18 08:00:00 MST 2011                 03/26/18 09:58:36     probid =   03/26/18 09:58:26
