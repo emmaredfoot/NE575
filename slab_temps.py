@@ -5,35 +5,39 @@ import matplotlib.patches as mpatches
 
 
 def Temp(T_HP, FValue, HighF):
-    FluxValue=1341.73
+
+    #1341.73 is the average heat flux assuming core power of 5 MWth
+    Gen_FuelHP=14.118E6*.011
+    Gen_Fuel_C=14.118E6*.0055
+    Gen2=Gen_FuelHP+Gen_Fuel_C
     HighF=Flux(HighF)
+    #k values in W/mK
     k_f=30.094
     h_g=464
     k_c=16.3
-    k_HP=139
+    k_HP=138
     k_ss=15
 
-    HPR=(.002)/(k_HP*.002*1.10)
-    SSR2=(.01423)/(k_ss*1.10*.01423)
-    CladR=(.00035)/(.00035*1.10*k_c)
+    HPR=(.002)/(k_HP)
+    SSR2=(.01423)/(k_ss*.01423)
+    CladR=(.00035)/(.00035*k_c)
     GapR=1/(h_g*.0001)
-    SSR1=(.00926)/(k_ss*1.10*.00926)
-    FuelR1=.0055/(k_f*1.10*.0055)
-    FuelR2=.011/(k_f*1.10*.011)
+    SSR1=(.00926)/(k_ss*.00926)
+    FuelR1=.0055/(k_f*.0055)
+    FuelR2=.011/(k_f*.011)
 
-    THP=T_HP+FluxValue*HPR
-    T_SSR2=THP+FluxValue*SSR2
-    TClad3=T_SSR2+FluxValue*CladR
+    THP=T_HP+Gen2*HPR
+    T_SSR2=THP+Gen2*SSR2
+    TClad3=T_SSR2+Gen2*CladR
     print("clad: ", TClad3)
-    TFuel2=TClad3+FluxValue*FuelR2
-    print("check: ", FluxValue*FuelR2)
-    TClad2=TFuel2+FluxValue*CladR
-    TSSR1=TClad2+FluxValue*SSR1
-    TClad1=TSSR1+FluxValue*CladR
-    TFuel1=TClad1+FluxValue*FuelR1
+    TFuel2=TClad3+Gen2*FuelR2
+    print("check: ", TFuel2)
+    TClad2=TFuel2+Gen_Fuel_C*CladR
+    TSSR1=TClad2+Gen_Fuel_C*SSR1
+    TClad1=TSSR1+Gen_Fuel_C*CladR
+    TFuel1=TClad1+Gen_Fuel_C*FuelR1
     print("Temperatures = ", THP, T_SSR2, TClad3, TFuel2, TClad2, TSSR1, TClad1, TFuel1)
-
-    #Temp = [T_max,T_gap1, T_Clad1,T_SS1,T_Clad2, T_gap2, T_fuel2, T_gap3, T_Clad3, T_SSR2, T_HP2]
+    Temp = [THP, T_SSR2, TClad3, TFuel2, TClad2, TSSR1, TClad1, TFuel1]
 
     #print(HPR, SSR2, CladR, GapR, SSR1, FuelR1, FuelR2)
     # T_other = 2847-FluxValue*(FuelR1+CladR+SSR1+CladR+FuelR2+CladR+SSR2+HPR+3*GapR)
@@ -53,11 +57,11 @@ def Temp(T_HP, FValue, HighF):
     #T_SS_HP = FluxValue*(FuelR1+GapR+CladR+SSR1+CladR+GapR+FuelR2+GapR)+T_HP+400
 
     #Temp = [T_max,T_gap1, T_Clad1,T_SS1,T_Clad2, T_gap2, T_fuel2, T_gap3, T_Clad3, T_SSR2, T_HP2]
-    #return(Temp)
-    return(0)
+    return(Temp)
 
 def Flux(flux):
-    v=flux*190E6*.3733*1.60217E-19
+    macro = .3733
+    v=flux*190E6*macro*1.60217E-19
     q_double=v*.55**2/(2*.595)
     q_prime=q_double*.595*100*2*3.14159
     #print(v, q_double, q_prime)
@@ -129,3 +133,34 @@ R_HPi1=.04514
 # plt.xlabel("Distance (m)")
 # #plt.title("Temperature as a Function of Distance from Fuel Centerline")
 # plt.show()
+
+#print(HPR, SSR2, CladR, GapR, SSR1, FuelR1, FuelR2)
+# T_other = 2847-FluxValue*(FuelR1+CladR+SSR1+CladR+FuelR2+CladR+SSR2+HPR+3*GapR)
+# print("Melting Conditions = ", T_other)
+# T_gap1 = T_max-FluxValue*(FuelR1+GapR)
+# T_Clad1= T_max-FluxValue*(FuelR1+GapR+CladR)
+# T_SS1= T_max-FluxValue*(FuelR1+GapR+CladR+SSR1)
+# T_Clad2= T_max-FluxValue*(FuelR1+GapR+CladR+SSR1+CladR)
+# T_gap2=T_max-FluxValue*(FuelR1+GapR+CladR+SSR1+CladR+GapR)
+# T_fuel2 = T_max-FluxValue*(FuelR1+GapR+CladR+SSR1+CladR+GapR+FuelR2)
+# T_gap3= T_max-FluxValue*(FuelR1+GapR+CladR+SSR1+CladR+GapR+FuelR2+GapR)
+# T_Clad3= T_max-FluxValue*(FuelR1+GapR+CladR+SSR1+CladR+GapR+FuelR2+GapR+CladR)
+# T_SSR2 = T_max-FluxValue*(FuelR1+GapR+CladR+SSR1+CladR+GapR+FuelR2+GapR+CladR+SSR2)
+# T_HP2 = T_max-FluxValue*(FuelR1+GapR+CladR+SSR1+CladR+GapR+FuelR2+GapR+CladR+SSR2+HPR)
+
+#T_HP_out = FluxValue*(FuelR1+GapR+CladR+SSR1+CladR+GapR+FuelR2+GapR+SSR2)+T_HP+400
+#T_SS_HP = FluxValue*(FuelR1+GapR+CladR+SSR1+CladR+GapR+FuelR2+GapR)+T_HP+400
+
+#Temp = [T_max,T_gap1, T_Clad1,T_SS1,T_Clad2, T_gap2, T_fuel2, T_gap3, T_Clad3, T_SSR2, T_HP2]
+
+#print("Max = ", Temp[0])
+# print("Gap min = ", T_gap1)
+# print("Clad1 = ", T_Clad1)
+# print("Stainless 1= ", T_SS1)
+# print("Clad2= ", T_Clad2)
+# print("Gap 2= ", T_gap2)
+# print("Fuel 2= ", T_fuel2)
+# print("Gap 3=", T_gap3)
+# print("Clad 3= ", T_Clad3)
+# print("Stainless 2= ", T_SSR2)
+# print("Heat Pipe= ", T_HP)
