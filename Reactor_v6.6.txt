@@ -15,10 +15,10 @@ c      ---
 6 11 -3.35 6 -24 -11 #1 #2 #3 #4 #5  imp:n=1 $Extra Shielding, concrete
 7 0 #1 #2 #3 #4 #5 #6  imp:n=0
 c
-100    1 -11.3      -100          VOL=347061          u=1    imp:n=1       $Uranium
-110    6 -1.0e-4     100 -130     VOL=108.37             u=1    imp:n=1       $He Gap
-120    5 -3.21       130 -140     Vol=122.34             u=1    imp:n=1       $Clad
-130    10 -7.92      140                                 u=1    imp:n=1       $Grid Material
+100    1 -11.3      -100                                  u=1    imp:n=1       $Uranium
+110    6 -1.0e-4     100 -130                             u=1    imp:n=1       $He Gap
+120    5 -3.21       130 -140                             u=1    imp:n=1       $Clad
+130    10 -7.92      140                                  u=1    imp:n=1       $Grid Material
 c
 c  200    12 -2.52     -100                                  u=2    imp:n=1       $Control rod in
 200    6 -1.0e-4    -100                                  u=2    imp:n=1       $Control rod out
@@ -35,7 +35,7 @@ c
                                                           u=3    imp:n=1       $3x3 fuel grid
 c
 300    13 -0.434      -300                                u=4    imp:n=1       $Heat pipe fluid
-310    10 -7.92        300 -330                           u=4    imp:n=1       $Heat pipe
+310    14 -10.22        300 -330                           u=4    imp:n=1       $Heat pipe
 330    10 -7.92        330                                u=4    imp:n=1       $Grid Material
 c
 340    0             -160 150 170 -180           lat=1
@@ -45,7 +45,7 @@ c
        1 1 1
                                                           u=5    imp:n=1       $3x3 fuel grid +control
 c
-440 6 -1.0e-4  -360 350 370 -380 imp:n=1 lat=1 fill=-13:13 -13:13 0:0
+440 6 -1.0e-4  -360 350 370 -380  imp:n=1 lat=1 fill=-13:13 -13:13 0:0
        6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
        6 6 6 6 6 6 6 6 6 6 6 5 3 5 3 5 6 6 6 6 6 6 6 6 6 6 6
        6 6 6 6 6 6 6 6 3 3 3 3 3 3 3 3 3 3 3 6 6 6 6 6 6 6 6
@@ -58,7 +58,7 @@ c
        6 6 3 4 3 4 5 4 5 4 5 4 3 4 3 4 5 4 5 4 5 4 3 4 3 6 6
        6 6 3 3 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 3 3 6 6
        6 5 3 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 3 5 6
-       6 3 3 3 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 3 3 3 6
+       6 8 3 3 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 3 3 3 6  $this is where I put the new cell. Second column, u=8
        6 5 3 4 5 4 5 4 5 4 5 4 3 4 3 4 5 4 5 4 5 4 5 4 3 5 6
        6 3 3 3 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 5 3 3 3 3 3 3 6
        6 5 3 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 3 5 6
@@ -73,8 +73,23 @@ c
        6 6 6 6 6 6 6 6 3 3 3 3 3 3 3 3 3 3 3 6 6 6 6 6 6 6 6
        6 6 6 6 6 6 6 6 6 6 6 5 3 5 3 5 6 6 6 6 6 6 6 6 6 6 6
        6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
-                                  u=6    imp:n=1  vol=829726   $Lulz
+                                  u=6    imp:n=1  vol=830000     $Lulz
 c
+c -------------------------------------------------------------------------------------------- Everything after is the fuel array that allows you to look at an individual fuel rod
+c
+101    1 -11.3      -100                                  u=7    imp:n=1       $Uranium
+111    6 -1.0e-4     100 -130                             u=7    imp:n=1       $He Gap
+121    5 -3.21       130 -140                             u=7    imp:n=1       $Clad
+131    10 -7.92      140                                  u=7    imp:n=1       $Grid Material
+c
+c
+341    0            -160 150 170 -180         vol=1000           lat=1
+       fill=-1:1 -1:1 0:0
+       1 1 1
+       1 7 1
+       1 1 1
+                                        vol=1000       u=8    imp:n=1  vol=1000
+c $3x3 fuel grid +control
 c      -----------
 c      end cell cards
 c      -----------
@@ -111,13 +126,13 @@ c
 170     PY  -0.63    $Unit cell low y plane
 180     PY   0.63    $Unit cell high y plane
 c
-c 200     CZ   0.409   $Control rod radius
-c 230     CZ   0.417   $Gap radius?
-c 240     CZ   0.474   $Control coating radius
+200     CZ   0.409   $Control rod radius
+230     CZ   0.417   $Gap radius?
+240     CZ   0.474   $Control coating radius
 c                    $ use 150-180 to define unit cells
 c
-300     CZ   1.5     $Heat pipe inner radius
-330     CZ   1.88    $Heat pipe outer radius
+300     CZ   1.4     $Heat pipe inner radius
+330     CZ   1.6    $Heat pipe outer radius
 350     PX  -1.89    $Unit cell low x plane
 360     PX   1.89    $Unit cell high x plane
 370     PY  -1.89    $Unit cell low y plane
@@ -130,42 +145,27 @@ c
 MODE   n $ p
 phys:N
 c phys:P
-KCODE  10000 1.0 10 100
+KCODE  1000 1.0 10 50
 ksrc -3.8 0 40 3.8 0 40 11.4 0 40 18.9 0 40 -18.9 -18.9 40 -18.9 18.9 40
      18.9 -18.9 40 18.9 18.9 40
 c
-c f64:p 100
-c fc64 Full core photon tally
 c
-c f66:p 100
-c fc66 Photon Heat
+f6:p,n 341
+fc6 Full core photon tally
 c
-f54:n 100, 110, 120
-fc54:n Neutron tally
+FMESH04:n GEOM=xyz   ORIGIN= -49 -49 0
+            IMESH=49   IINTS=1000
+            JMESH=49   JINTS=1000
+            KMESH=110   KINTS=1
+     OUT=ij
 c
-f56:n 100, 110, 120
-fc56 Neutron Tally Heat
++fm04  1  1 -6 $ Fission Rates
 c
-c *FMESH4:n GEOM=CYL ORIGIN= 0 0 0
-c         IMESH=49   IINTS=1
-c         JMESH=110  JINTS=1
-c		 KMESH=1 KINTS=1
-c        AXS= 1 0 0 VEC=0 1 0 OUT=IJ
-c +fm04  1  1 -6 $ Fission Rates
-c
-c FMESH14:n GEOM=CYL ORIGIN= 0 0 0
-c         IMESH=49   IINTS=1000
-c         JMESH=110  JINTS=1000
-c		 KMESH=1 KINTS=100
-c         AXS= 1 0 0 VEC=0 1 0 OUT=IJ
-c +fm14  1  1 -6 $ Fission Rates
-c
-c
-c FMESH14:n GEOM=xyz   ORIGIN= -90 -90 0 $flux
-c            IMESH=90   IINTS=1000
-c            JMESH=90   JINTS=1000
-c            KMESH=110   KINTS=1
-c     OUT=ij
+FMESH14:n GEOM=xyz   ORIGIN= -90 -90 0 $flux
+            IMESH=90   IINTS=1000
+            JMESH=90   JINTS=1000
+            KMESH=110   KINTS=1
+     OUT=ij
 c
 c
 c
@@ -175,13 +175,13 @@ M1     92235.67c 0.199
        7015.42c 1.
 c
 c      Carbon (Graphite)         1.7 g/cc
-c M2 6000.24c 1
+M2 6000.24c 1
 c
 c      Air                  0.001205 g/cc
-c m3 6000.24c 0.000151 $ C
-c     7014.24c 0.784437 $ N
-c     8016.21c 0.210750 $ O
-c     18000.35c 0.004671 $ Ar
+m3 6000.24c 0.000151 $ C
+     7014.24c 0.784437 $ N
+     8016.21c 0.210750 $ O
+     18000.35c 0.004671 $ Ar
 c
 c      Beryllium                1.85 g/cc
 m4 4009.24c 1
@@ -194,16 +194,16 @@ c      Helium              0.0001785 g/cc
 M6 2004.42c 1
 c
 c      Water                    1.00 g/cc
-c M7 1001.24c 0.666657
-c      8016.21c 0.333343
+M7 1001.24c 0.666657
+     8016.21c 0.333343
 c
 c      Inconel 600              8.43 g/cc
-c M8 24000.42c 0.197637
-c     26000.21c 0.102231
-c     28000.42c 0.700133
+M8 24000.42c 0.197637
+     26000.21c 0.102231
+     28000.42c 0.700133
 c
 c      Lead                    11.35 g/cc
-c M9 82000.42c 1
+M9 82000.42c 1
 c
 c      SS316L                   7.92 g/cc
 M10 14000.21c 0.019755 $ Si
@@ -214,7 +214,7 @@ M10 14000.21c 0.019755 $ Si
      42000.42c 0.014458 $ Mo
 c
 c      Concrete (Barite)        3.35 g/cc
-M11 1001.24c 0.109602
+M11  1001.24c 0.109602
      8016.21c 0.600193
      12000.42c 0.001515
      13027.21c 0.004777
@@ -225,10 +225,17 @@ M11 1001.24c 0.109602
      56130.70c 0.103984
 c
 c      Boron Carbide            2.52 g/cc
-M12 5010.42c 0.799981
+M12  5010.42c 0.799981
      6000.24c 0.200018
 c
 c      Sodium                   0.971 g/cc
 M13 11022.70c 1
 c
+c      Moly TMZ                 10.22 g/cc
+M14  42000.42c 0.94 $ Mo
+     22000.42c 0.05 $ Ti
+     40000.42c 0.008 $ Zr
+      6000.24c 0.002 $ C
+c
+c F6:n,p 440
 c

@@ -1,0 +1,89 @@
+Jezebel bare U-235 sphere
+c      -----------------------------------------------------------------
+c      Emma Redfoot
+c      -----------------------------------------------------------------
+c      rev.5.September.2017
+c      -----------------------------------------------------------------
+c
+c      ------------------------- MODEL NOTES ---------------------------
+c
+c      This is an example for a criticality model to be applied to FOM.
+c      The origin is 000.
+c
+c      ----------------------- END MODEL NOTES -------------------------
+c
+c      -----------------------------------------------------------------
+c
+c
+c      ------------------------- START CARDS ---------------------------
+c
+c      -----------
+c      cell cards
+c      -----------
+c
+c      ---
+100    1 4.5229E-02       -10       imp:n=1       $Uranium 235 sphere
+c      ---
+150    0                   10       imp:n=0        $void
+c      ---
+c
+c      -----------
+c      end cell cards
+c      -----------
+
+c      -----------
+c      surface cards
+c      -----------
+c
+c      ---
+c      geometry
+c      ---
+10     SPH  9.25     $235-U sphere
+c      ---
+c      ---
+c      end source geometry
+c      ---
+c
+c      -----------
+c      end surface cards
+c      -----------
+
+c      -----------
+c      data cards
+c      -----------
+c
+c      ---
+MODE   n
+c      ---
+c
+c      ---
+c      end physics
+c      ---
+c
+c      ---
+c      source
+c      ---
+c
+c      ---
+KCODE  1000 1.0 30 130
+KSRC   0 0 0
+c      ---
+c
+c      ---
+c      end source
+c      ---
+c
+c      ---
+c      materials
+c      ---
+c
+c      ---
+c      Uranium 235
+M1     92235 0.95
+       92238 0.05
+c
+c      ---
+c      end materials
+c      ---
+c
+c      ----------- END CARDS -----------

@@ -39,16 +39,18 @@ other =0
 for i in range(len(b)):
     if b[i] == 5:
         count_5 = count_5+1
+        #print(b[i])
     elif b[i] == 3:
         count_3 = count_3+1
+        #print(b[i])
     elif b[i] == 4:
         count_4 = count_4+1
     else:
         other = other+1
 
 print('3x3 U3: ', count_3*9)
-print('3x3 U5: ', count_5*9)
-print('Total: ', count_3*9+count_5*9)
+print('3x3 U5: ', count_5*8)
+print('Total: ', count_3*9+count_5*8)
 print('Control Rods: ', count_5)
 print('Heat Pipes: ', count_4)
 print('other: ', other)

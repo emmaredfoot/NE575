@@ -134,9 +134,11 @@ KCODE  10000 1.0 10 100
 ksrc -3.8 0 40 3.8 0 40 11.4 0 40 18.9 0 40 -18.9 -18.9 40 -18.9 18.9 40
      18.9 -18.9 40 18.9 18.9 40
 c
-c f64:p 100
-c fc64 Full core photon tally
+f6:p,n
+fc6 Full core photon tally
 c
+c f6:n
+c fc Full core neutron Tally
 c f66:p 100
 c fc66 Photon Heat
 c

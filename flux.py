@@ -17,9 +17,16 @@ for x in b2:
         y.append(x)
         index=np.argwhere(b2==x)
         b2 = np.delete(b2,index)
+
 y=np.sort(y)
+flux_arranged = np.sort(b2)
+
 print(len(y))
-print(len(b2))
+print("after ", len(flux_arranged))
+
+print(flux_arranged)
+print("Max flux= ", flux_arranged[len(b2)-1])
+print("Next Max= ", flux_arranged[len(b2)-2])
 
 #Now a is the x coordinate, y is the y coordinate, and b2 is all of the flux values
 #Now I need to associate the correct flux value with the correct x and y coordinates
