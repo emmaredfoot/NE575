@@ -74,7 +74,9 @@ SecondFlux=3.832e13
 
 
 M=Flux(MaxFlux)
+print("M= ", M)
 S=Flux(SecondFlux)
+print("S= ", S)
 
 #Resistance values
 T_K=760
