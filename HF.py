@@ -29,15 +29,15 @@ def Temp(T_HP, FValue, HighF):
     FuelR2=.011/(k_f)
 
     THP=T_HP+HF*HPR
-    T_SSR2=THP+Gen2*SSR2
-    TClad3=T_SSR2+Gen2*CladR
-    print("clad: ", TClad3)
-    TFuel2=TClad3+Gen2*FuelR2
-    print("check: ", TFuel2)
-    TClad2=TFuel2+Gen_Fuel_C*CladR
-    TSSR1=TClad2+Gen_Fuel_C*SSR1
-    TClad1=TSSR1+Gen_Fuel_C*CladR
-    TFuel1=TClad1+Gen_Fuel_C*FuelR1
+    T_SSR2=THP+HF*SSR2
+    TClad3=T_SSR2+HF*CladR
+    #print("clad: ", TClad3)
+    TFuel2=TClad3+HF*FuelR2
+    #print("check: ", TFuel2)
+    TClad2=TFuel2+HighF*CladR
+    TSSR1=TClad2+HighF*SSR1
+    TClad1=TSSR1+HighF*CladR
+    TFuel1=TClad1+HighF*FuelR1
     print("Temperatures = ", THP, T_SSR2, TClad3, TFuel2, TClad2, TSSR1, TClad1, TFuel1)
     Temp = [T_HP, THP, T_SSR2, TClad3, TFuel2, TClad2, TSSR1, TClad1, TFuel1]
     return(Temp)
@@ -97,5 +97,5 @@ plt.plot(R,TempK,'go', R, TempNa, 'ro', R, TempCe, 'bo')
 #plt.plot(R_f1, T_max, R_ci1, T_gap1, R_co1, T_Clad1, R_ssi1, T_SS1, R_sso1, T_Clad2, R_co2, T_gap2, 'ro')
 plt.ylabel("Temperature (C)")
 plt.xlabel("Distance (m)")
-plt.title("Temperature as a Function of Distance from Heat Pipe")
+plt.title("Temperature with Max Neutron Flux")
 plt.show()
